@@ -1,3 +1,5 @@
+# Semester 1 (RCDCS1101A)
+
 ### Courses:
 - **CSC121** - Introduction to Algorithm Design & Development  
   **Lecture**: Siti Sarah binti MD Ilyas  
