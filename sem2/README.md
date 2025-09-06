@@ -1,7 +1,5 @@
 # Semester 2 (RCDCS1102)
 
-Courses:
-
 | Course Code | Course Name                             |
 | ----------- | --------------------------------------- |
 | CSC159  | Computer Organization                   |
