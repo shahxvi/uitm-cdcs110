@@ -22,20 +22,37 @@ public class KTMB_OOP {
 
                         // Get Package Code
                         System.out.print("Please enter package code (G / P): ");
-                        customers.setPackageCode(Character.toUpperCase(keyboard.next().charAt(0)));
+                        customers.setPackageCode(getCharInput(keyboard));
 
                         // For invalid Package Code
                         while (!(customers.getPackageCode() == 'G' || customers.getPackageCode() == 'P')) {
                                 System.out.println("Invalid Package Code");
                                 System.out.print("Please enter package code (G / P): ");
-                                customers.setPackageCode(Character.toUpperCase(keyboard.next().charAt(0)));
+                                customers.setPackageCode(getCharInput(keyboard));
                         }
 
                         System.out.print("\nPlease enter quantity of adults: ");
-                        customers.setAdultQuantity(keyboard.nextInt());
+                        char ch = keyboard.next().charAt(0);
+
+                        // For incorrect int input
+                        while (Character.isAlphabetic(ch)) {
+                                System.out.print("\nPlease enter quantity of adults: ");
+                                ch = keyboard.next().charAt(0);
+                        }
+
+                        customers.setAdultQuantity(Character.getNumericValue(ch));
+
 
                         System.out.print("\nPlease enter quantity of children: ");
-                        customers.setChildQuantity(keyboard.nextInt());
+                        ch = keyboard.next().charAt(0);
+
+                        // For incorrect int input
+                        while (Character.isAlphabetic(ch)) {
+                                System.out.print("\nPlease enter quantity of adults: ");
+                                ch = keyboard.next().charAt(0);
+                        }
+
+                        customers.setChildQuantity(Character.getNumericValue(ch));
 
                         // Confirmation for meal combo
                         System.out.print("\nDo you want add on meal combo? (Y/N): ");
@@ -57,13 +74,18 @@ public class KTMB_OOP {
                         System.out.printf("Net Ticket Price:\tRM%,.2f\n", customers.getTotal());
 
                         System.out.print("\nRepeat for a different Customer? (Y/N): ");
-                        repeat = Character.toUpperCase(keyboard.next().charAt(0));
+                        repeat = getCharInput(keyboard);
                         keyboard.nextLine(); // consume the leftover \n
 
                         System.out.println(); // line seperator
                 } while (!(repeat == 'N'));
 
                 keyboard.close();
+        }
+
+        public static char getCharInput(Scanner keyboard) {
+                char input = Character.toUpperCase(keyboard.next().charAt(0));
+                return input;
         }
 
         private static class Customers {
