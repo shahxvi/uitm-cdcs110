@@ -100,53 +100,30 @@ public class KTMB_OOP {
                 Ticket ticket = new Ticket();
                 Meal meal = new Meal();
 
-                public void setPassengerID(String passengerID) {
-                        this.passengerID = passengerID;
-                }
+                public void setPassengerID(String passengerID) { this.passengerID = passengerID; }
 
-                public void setPackageCode(char packageCode) {
-                        this.packageCode = packageCode;
-                }
+                public void setPackageCode(char packageCode) { this.packageCode = packageCode; }
 
-                public void setAdultQuantity(int adultQuantity) {
-                        this.adultQuantity = adultQuantity;
-                }
+                public void setAdultQuantity(int adultQuantity) { this.adultQuantity = adultQuantity; }
 
-                public void setChildQuantity(int childQuantity) {
-                        this.childQuantity = childQuantity;
-                }
+                public void setChildQuantity(int childQuantity) { this.childQuantity = childQuantity; }
 
-                public void setAddOn(boolean addOn) {
-                        this.addOn = addOn;
-                }
+                public void setAddOn(boolean addOn) { this.addOn = addOn; }
 
-                public void setMealQuantity(int mealQuantity) {
-                        this.mealQuantity = mealQuantity;
-                }
+                public void setMealQuantity(int mealQuantity) { this.mealQuantity = mealQuantity; }
 
-                public String getPassengerID() {
-                        return passengerID;
-                }
+                public String getPassengerID() { return passengerID; }
 
-                public char getPackageCode() {
-                        return packageCode;
-                }
+                public char getPackageCode() { return packageCode; }
 
-                public int getAdultQuantity() {
-                        return adultQuantity;
-                }
+                public int getAdultQuantity() { return adultQuantity; }
 
-                public int getChildQuantity() {
-                        return childQuantity;
-                }
+                public int getChildQuantity() { return childQuantity; }
 
-                public double getTicketPrice() {
-                        return ticket.getTicketPrice(packageCode, adultQuantity, childQuantity);
-                }
+                public double getTicketPrice() { return ticket.getTicketPrice(packageCode, adultQuantity, childQuantity); }
 
-                public boolean getAddOn() {
-                        return addOn;
-                }
+                public boolean getAddOn() { return addOn; }
+
                 public double getMealPrice() {
                         if (addOn)
                                 return meal.getMealPrice(mealQuantity);
@@ -154,9 +131,7 @@ public class KTMB_OOP {
                                 return 0;
                 }
 
-                public double getTotal() {
-                        return getTicketPrice() + getMealPrice();
-                }
+                public double getTotal() { return getTicketPrice() + getMealPrice(); }
         }
 
         public static class Ticket {
@@ -166,21 +141,13 @@ public class KTMB_OOP {
                 private static double ADULT_PLATINUM_PRICE = 79.00;
                 private static double CHILD_PLATINUM_PRICE = 44.00;
 
-                public static double getAdultGoldPrice() {
-                        return ADULT_GOLD_PRICE;
-                }
+                public static double getAdultGoldPrice() { return ADULT_GOLD_PRICE; }
 
-                public static double getChildGoldPrice() {
-                        return CHILD_GOLD_PRICE;
-                }
+                public static double getChildGoldPrice() { return CHILD_GOLD_PRICE; }
 
-                public static double getAdultPlatinumPrice() {
-                        return ADULT_PLATINUM_PRICE;
-                }
+                public static double getAdultPlatinumPrice() { return ADULT_PLATINUM_PRICE; }
 
-                public static double getChildPlatinumPrice() {
-                        return CHILD_PLATINUM_PRICE;
-                }
+                public static double getChildPlatinumPrice() { return CHILD_PLATINUM_PRICE; }
 
                 public double getTicketPrice(char packageCode, int adultQuantity, int childQuantity) {
                         if (packageCode == 'G')
@@ -194,8 +161,6 @@ public class KTMB_OOP {
         private static class Meal {
                 final double MEAL_COMBO_PRICE = 7.00;
 
-                public double getMealPrice(int mealQuantity) {
-                        return mealQuantity * MEAL_COMBO_PRICE;
-                }
+                public double getMealPrice(int mealQuantity) { return mealQuantity * MEAL_COMBO_PRICE; }
         }
 }
