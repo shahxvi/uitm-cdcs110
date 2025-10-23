@@ -40,14 +40,15 @@ public class Canopy {
                         keyboard.nextLine(); // Consume leftover \n
 
                         // Get wet item
-                        System.out.print("\nDo you want to sell wet item? (y/n): ");
+                        System.out.print("\nWill you be selling wet items? (y/n): ");
                         isSellingWetItem = (Character.toUpperCase(keyboard.next().charAt(0)) == 'Y');
 
                         // Calculate total charge
                         totalCharge = canopyCharge(participantCode, totalCanopies, totalDays)
                                         + additionalCharge(isSellingWetItem);
+
                         // Summary
-                        System.out.println("Participant Code:\t" + participantCode);
+                        System.out.println("\nParticipant Code:\t" + participantCode);
                         System.out.println("Number of Canopies:\t" + totalCanopies);
                         System.out.println("Selling Wet Item:\t" + isSellingWetItem);
                         if (isSellingWetItem)
