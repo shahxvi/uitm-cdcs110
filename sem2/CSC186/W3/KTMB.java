@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class KTMB {
         public static void main(String[] args) {
                 Scanner keyboard = new Scanner(System.in);
-                char repeat;
+                boolean isRepeat;
                 do {
                         String passengerID;
                         char packageCode;
@@ -23,7 +23,7 @@ public class KTMB {
                         double mealComboCharge = 0.00;
 
                         // Get Pessenger ID
-                        System.out.print("Please enter Passenger ID: ");
+                        System.out.print("\nPlease enter Passenger ID: ");
                         passengerID = keyboard.nextLine();
 
                         // Table of Prices
@@ -39,13 +39,13 @@ public class KTMB {
                                         CHILD_PLATINUM_PRICE);
 
                         // Get Package Code
-                        System.out.print("Please enter package code (G / P): ");
+                        System.out.print("Please enter package code (G/P): ");
                         packageCode = Character.toUpperCase(keyboard.next().charAt(0));
 
                         // For invalid Package Code
                         while (!(packageCode == 'G' || packageCode == 'P')) {
                                 System.out.println("Invalid Package Code");
-                                System.out.print("Please enter package code (G / P): ");
+                                System.out.print("Please enter package code (G/P): ");
                                 packageCode = Character.toUpperCase(keyboard.next().charAt(0));
                         }
 
@@ -64,12 +64,12 @@ public class KTMB {
                         }
 
                         // Confirmation for meal combo
-                        System.out.print("\nDo you want add on meal combo? (Y/N): ");
+                        System.out.print("\nDo you want add on meal combo? (y/n): ");
                         addOn = keyboard.next().equalsIgnoreCase("Y");
 
                         // Get quantity and calculate charge
                         if (addOn) {
-                                System.out.print("Enter quantity of meal combo: ");
+                                System.out.print("\nEnter quantity of meal combo: ");
                                 mealComboQuantity = keyboard.nextInt();
 
                                 mealComboCharge = mealComboQuantity * MEAL_COMBO_PRICE;
@@ -87,9 +87,10 @@ public class KTMB {
                         System.out.printf("Meal Combo Price:\tRM%,.2f\n", mealComboCharge);
                         System.out.printf("Net Ticket Price:\tRM%,.2f\n", total);
 
-                        System.out.print("\nRepeat for a different Customer? (Y/N): ");
-                        repeat = Character.toUpperCase(keyboard.next().charAt(0));
-                } while (!(repeat == 'N'));
+                        System.out.print("\nisRepeat for a different Customer? (y/n): ");
+                        isRepeat = Character.toUpperCase(keyboard.next().charAt(0)) == 'Y';
+                        keyboard.nextLine();
+                } while (isRepeat);
                 keyboard.close();
         }
 }
