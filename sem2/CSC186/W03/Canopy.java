@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class Canopy {
+        public static double studentCharge = 90.00;
+        public static double staffCharge = 150.00;
+        public static double outsiderCharge = 200.00;
+
         public static void main(String[] args) {
                 boolean isContinue;
                 Scanner keyboard = new Scanner(System.in);
@@ -12,11 +16,11 @@ public class Canopy {
                         double totalCharge = 0;
 
                         // Table
-                        System.out.println("| Participant Type | Participant Code | Charges / Day |");
-                        System.out.println("| ---------------- | ---------------- | ------------- |");
-                        System.out.println("| Students         | T                | RM90.00       |");
-                        System.out.println("| Staff            | S                | RM150.00      |");
-                        System.out.println("| Outsider         | O                | RM200.00      |");
+                        System.out.printf("| Participant Type | Participant Code | Charges / Day |");
+                        System.out.printf("\n| ---------------- | ---------------- | ------------- |");
+                        System.out.printf("\n| Students         | T                | RM%.2f        |", studentCharge);
+                        System.out.printf("\n| Staff            | S                | RM%.2f        |", staffCharge);
+                        System.out.printf("\n| Outsider         | O                | RM%.2f        |", outsiderCharge);
 
                         // Get Code
                         System.out.print("Please enter your code: ");
@@ -69,11 +73,11 @@ public class Canopy {
         public static double canopyCharge(char participantCode, int totalCanopies, int totalDays) {
                 switch (participantCode) {
                         case 'T':
-                                return (90 * totalDays) * totalCanopies;
+                                return (studentCharge * totalCanopies) * totalDays;
                         case 'S':
-                                return (150 * totalDays) * totalCanopies;
+                                return (staffCharge * totalCanopies) * totalDays;
                         default:
-                                return (200 * totalDays) * totalCanopies;
+                                return (outsiderCharge * totalCanopies) * totalDays;
                 }
         }
 }
