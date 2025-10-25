@@ -23,12 +23,12 @@ public class Canopy {
                         System.out.printf("\n| Outsider         | O                | RM%.2f        |", outsiderCharge);
 
                         // Get Code
-                        System.out.print("Please enter your code: ");
+                        System.out.print("\nPlease enter your code: ");
                         participantCode = Character.toUpperCase(keyboard.next().charAt(0));
 
                         // Loop for invalid code
                         while (participantCode != 'T' && participantCode != 'S' && participantCode != 'O') {
-                                System.out.print("Please enter your code: ");
+                                System.out.print("\nPlease enter your code: ");
                                 participantCode = Character.toUpperCase(keyboard.next().charAt(0));
                         }
                         keyboard.nextLine(); // Consume leftover \n
