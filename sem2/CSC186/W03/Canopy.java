@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Canopy {
-        public static double studentCharge = 90.00;
-        public static double staffCharge = 150.00;
-        public static double outsiderCharge = 200.00;
+        public static final double STUDENT_CHARGE = 90.00;
+        public static final double STAFF_CHARGE = 150.00;
+        public static final double OUTSIDER_CHARGE = 200.00;
 
         public static void main(String[] args) {
                 boolean isContinue;
@@ -18,9 +18,9 @@ public class Canopy {
                         // Table
                         System.out.printf("| Participant Type | Participant Code | Charges / Day |");
                         System.out.printf("\n| ---------------- | ---------------- | ------------- |");
-                        System.out.printf("\n| Students         | T                | RM%.2f        |", studentCharge);
-                        System.out.printf("\n| Staff            | S                | RM%.2f        |", staffCharge);
-                        System.out.printf("\n| Outsider         | O                | RM%.2f        |", outsiderCharge);
+                        System.out.printf("\n| Students         | T                | RM%.2f        |", STUDENT_CHARGE);
+                        System.out.printf("\n| Staff            | S                | RM%.2f        |", STAFF_CHARGE);
+                        System.out.printf("\n| Outsider         | O                | RM%.2f        |", OUTSIDER_CHARGE);
 
                         // Get Code
                         System.out.print("\nPlease enter your code: ");
@@ -73,11 +73,11 @@ public class Canopy {
         public static double canopyCharge(char participantCode, int totalCanopies, int totalDays) {
                 switch (participantCode) {
                         case 'T':
-                                return (studentCharge * totalCanopies) * totalDays;
+                                return (STUDENT_CHARGE * totalCanopies) * totalDays;
                         case 'S':
-                                return (staffCharge * totalCanopies) * totalDays;
+                                return (STAFF_CHARGE * totalCanopies) * totalDays;
                         default:
-                                return (outsiderCharge * totalCanopies) * totalDays;
+                                return (OUTSIDER_CHARGE * totalCanopies) * totalDays;
                 }
         }
 }
