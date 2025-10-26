@@ -16,11 +16,11 @@ public class Canopy {
                         double totalCharge = 0;
 
                         // Table
-                        System.out.printf("| Participant Type | Participant Code | Charges / Day |");
-                        System.out.printf("\n| ---------------- | ---------------- | ------------- |");
-                        System.out.printf("\n| Students         | T                | RM%.2f        |", STUDENT_CHARGE);
-                        System.out.printf("\n| Staff            | S                | RM%.2f        |", STAFF_CHARGE);
-                        System.out.printf("\n| Outsider         | O                | RM%.2f        |", OUTSIDER_CHARGE);
+                        System.out.printf("| Participant Type | Participant Code | Charges / Day |\n");
+                        System.out.printf("| ---------------- | ---------------- | ------------- |\n");
+                        System.out.printf("| Students         | T                | RM%.2f       |\n", STUDENT_CHARGE);
+                        System.out.printf("| Staff            | S                | RM%.2f      |\n", STAFF_CHARGE);
+                        System.out.printf("| Outsider         | O                | RM%.2f      |", OUTSIDER_CHARGE);
 
                         // Get Code
                         System.out.print("\nPlease enter your code: ");
