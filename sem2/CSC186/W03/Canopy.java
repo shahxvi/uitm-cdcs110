@@ -6,7 +6,7 @@ public class Canopy {
         public static final double OUTSIDER_CHARGE = 200.00;
 
         public static void main(String[] args) {
-                boolean isContinue;
+                boolean isContinue = true;
                 Scanner keyboard = new Scanner(System.in);
                 do {
                         char participantCode = 'N';
@@ -38,10 +38,19 @@ public class Canopy {
                         totalCanopies = keyboard.nextInt();
                         keyboard.nextLine(); // Consume leftover \n
 
+                        if (totalCanopies <= 0) {
+                                System.out.println("Please enter a valid value\n");
+                                continue; // restart the do while loop
+                        }
+
                         // Get day count
                         System.out.print("\nPlease the number of days to use: ");
                         totalDays = keyboard.nextInt();
                         keyboard.nextLine(); // Consume leftover \n
+                        if (totalDays <= 0) {
+                                System.out.println("Please enter a valid value\n");
+                                continue; // restart the do while loop
+                        }
 
                         // Get wet item
                         System.out.print("\nWill you be selling wet items? (y/n): ");
@@ -62,6 +71,7 @@ public class Canopy {
                         // Continue?
                         System.out.print("\nDo you want to continue for another customer? (y/n): ");
                         isContinue = (Character.toUpperCase(keyboard.next().charAt(0)) == 'Y');
+                        System.out.println(); // separator
                 } while (isContinue);
                 keyboard.close();
         }
