@@ -28,28 +28,33 @@ public class Canopy {
 
                         // Loop for invalid code
                         while (participantCode != 'T' && participantCode != 'S' && participantCode != 'O') {
-                                System.out.print("\nPlease enter your code: ");
+                                System.out.println("Invalid Code");
+                                System.out.print("\nPlease enter a valid code: ");
                                 participantCode = Character.toUpperCase(keyboard.next().charAt(0));
                         }
                         keyboard.nextLine(); // Consume leftover \n
 
                         // Get number of canopies
-                        System.out.print("\nPlease the number of canopies: ");
+                        System.out.print("\nPlease enter the number of canopies: ");
                         totalCanopies = keyboard.nextInt();
                         keyboard.nextLine(); // Consume leftover \n
 
-                        if (totalCanopies <= 0) {
-                                System.out.println("Please enter a valid value\n");
-                                continue; // restart the do while loop
+                        while (totalCanopies <= 0) {
+                                System.out.println("Invalid Number");
+                                System.out.print("\nPlease enter a valid number of canopies: ");
+                                totalCanopies = keyboard.nextInt();
+                                keyboard.nextLine(); // Consume leftover \n
                         }
 
                         // Get day count
-                        System.out.print("\nPlease the number of days to use: ");
+                        System.out.print("\nPlease enter the number of days to use: ");
                         totalDays = keyboard.nextInt();
                         keyboard.nextLine(); // Consume leftover \n
-                        if (totalDays <= 0) {
-                                System.out.println("Please enter a valid value\n");
-                                continue; // restart the do while loop
+                        while (totalDays <= 0) {
+                                System.out.println("Invalid Input");
+                                System.out.print("\nPlease enter a valid number of days to use: ");
+                                totalDays = keyboard.nextInt();
+                                keyboard.nextLine(); // Consume leftover \n
                         }
 
                         // Get wet item
@@ -65,8 +70,8 @@ public class Canopy {
                         System.out.println("Number of Canopies:\t" + totalCanopies);
                         System.out.println("Selling Wet Item:\t" + isSellingWetItem);
                         if (isSellingWetItem)
-                                System.out.println("Wet Item Charge:\t" + additionalCharge(isSellingWetItem));
-                        System.out.println("Total Charge:\t\t" + totalCharge);
+                                System.out.printf("Wet Item Charge:\tRM%,.2f\n", additionalCharge(isSellingWetItem));
+                        System.out.printf("Total Charge:\t\tRM%,.2f", totalCharge);
 
                         // Continue?
                         System.out.print("\nDo you want to continue for another customer? (y/n): ");
