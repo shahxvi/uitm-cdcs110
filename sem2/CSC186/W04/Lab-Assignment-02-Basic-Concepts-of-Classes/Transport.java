@@ -57,6 +57,10 @@ public class Transport {
                 this.price = price;
         }
 
+        public void setDiscountRate(double discountRate) {
+                this.discountRate = discountRate;
+        }
+
         // Getters
         public String getRegistrationNumber() {
                 return registrationNumber;
@@ -70,6 +74,10 @@ public class Transport {
                 return price;
         }
 
+        public double getDicountRate() {
+                return discountRate;
+        }
+
         // Processors
         public boolean transportSelangor() {
                 if (registrationNumber.startsWith("B"))
@@ -79,6 +87,7 @@ public class Transport {
         }
 
         public double discountPrice(double discountRate) {
+                this.discountRate = discountRate;
                 return price * (1 - discountRate);
         }
 
@@ -87,6 +96,7 @@ public class Transport {
                 return "\nRegistration Number: " + registrationNumber +
                                 "\nBrand: " + brand +
                                 "\nOriginal Price: " + price +
+                                "\nRegistered in Selangor: " + transportSelangor() +
                                 "\nPrice After Disocunt: " + discountPrice(discountRate);
         }
 }
