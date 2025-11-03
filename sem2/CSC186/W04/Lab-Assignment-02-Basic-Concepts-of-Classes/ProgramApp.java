@@ -34,8 +34,9 @@ public class ProgramApp {
                 program.setDescription(keyboard.nextLine());
 
                 // Get Program Duration
-                System.out.print("\nPlease enter " + program.getProgramCode() + " duration: ");
-                program.setDuration(keyboard.nextLine());
+                System.out.print("\nPlease enter " + program.getProgramCode() + " duration in years: ");
+                program.setdurationInYears(keyboard.nextInt());
+                keyboard.nextLine();
 
                 // Get Program Faculty
                 System.out.print("\nPlease enter " + program.getProgramCode() + " faculty: ");
@@ -46,7 +47,7 @@ public class ProgramApp {
                 program.setProgramHead(keyboard.nextLine());
 
                 // Print out the object
-                System.out.println(program);
+                System.out.println(program.toString());
 
                 keyboard.close();
         }

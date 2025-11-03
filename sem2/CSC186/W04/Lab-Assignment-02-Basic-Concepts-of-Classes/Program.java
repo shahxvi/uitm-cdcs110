@@ -19,37 +19,44 @@
  * SOFTWARE. */
 
 public class Program {
+        // Attributes
         public String programCode;
         public String description;
-        public String duration;
+        public int durationInYears;
         public String faculty;
         public String programHead;
 
+        /* Constructors */
+        // Default Constructor
         public Program() {
                 programCode = "";
                 description = "";
-                duration = "";
+                durationInYears = 0;
                 faculty = "";
                 programHead = "";
         }
 
-        public Program(String programCode, String description, String duration, String faculty, String programHead) {
+        // Normal Constructor
+        public Program(String programCode, String description, int durationInYears, String faculty,
+                        String programHead) {
                 this.programCode = programCode;
                 this.description = description;
-                this.duration = duration;
+                this.durationInYears = durationInYears;
                 this.faculty = faculty;
                 this.programHead = programHead;
         }
 
+        // Copy Constructor
         public Program(Program otherProgram) {
                 this.programCode = otherProgram.programCode;
                 this.description = otherProgram.description;
-                this.duration = otherProgram.duration;
+                this.durationInYears = otherProgram.durationInYears;
                 this.faculty = otherProgram.faculty;
                 this.programHead = otherProgram.programHead;
         }
+        /* Constructors */
 
-        // Setters
+        /* Setters */
         public void setProgramCode(String programCode) {
                 this.programCode = programCode;
         }
@@ -58,8 +65,8 @@ public class Program {
                 this.description = description;
         }
 
-        public void setDuration(String duration) {
-                this.duration = duration;
+        public void setdurationInYears(int durationInYears) {
+                this.durationInYears = durationInYears;
         }
 
         public void setFaculty(String faculty) {
@@ -69,8 +76,9 @@ public class Program {
         public void setProgramHead(String programHead) {
                 this.programHead = programHead;
         }
+        /* Setters */
 
-        // Getters
+        /* Getters */
         public String getProgramCode() {
                 return programCode;
         }
@@ -79,8 +87,8 @@ public class Program {
                 return description;
         }
 
-        public String getDuration() {
-                return duration;
+        public int getdurationInYears() {
+                return durationInYears;
         }
 
         public String getFaculty() {
@@ -90,31 +98,43 @@ public class Program {
         public String getProgramHead() {
                 return programHead;
         }
+        /* Getters */
 
         // Processor
-        public String getProgramLevel() {
-                if (programCode.charAt(2) == '0')
-                        return "Certificate";
-                else if (programCode.charAt(2) == '1')
-                        return "Diploma";
-                else if (programCode.charAt(2) == '2')
-                        return "Degree";
-                else if (programCode.charAt(2) == '7')
-                        return "Master";
-                else if (programCode.charAt(2) == '9')
-                        return "Doctorate";
-                else
-                        return "";
+        public String determineProgramLevel() {
+                int firstNumber = 9;
+
+                for (int i = 0; i < programCode.length(); i++) {
+                        if (Character.isDigit(programCode.charAt(i))) {
+                                firstNumber = Character.getNumericValue(programCode.charAt(i));
+                                break;
+                        }
+                }
+
+                // Determine program level and return it
+                switch (firstNumber) {
+                        case 0:
+                                return "Certificate";
+                        case 1:
+                                return "Diploma";
+                        case 2:
+                                return "Degree";
+                        case 7:
+                                return "Master";
+                        case 9:
+                                return "Doctorate";
+                        default:
+                                return "Unknown - Could Not Determine Program Level";
+                }
         }
 
         // Printer
         public String toString() {
-                String str = "\nProgram Code:\t" + programCode +
-                                "\nDescription:\t" + description +
-                                "\nDuration:\t" + duration +
-                                "\nFaculty:\t" + faculty +
-                                "\nProgram Head:\t" + programHead +
-                                "\nProgram Level:\t" + getProgramLevel();
-                return str;
+                return "\nProgram Code:\t\t" + programCode +
+                                "\nDescription:\t\t" + description +
+                                "\nDuration (Years):\t" + durationInYears +
+                                "\nFaculty:\t\t" + faculty +
+                                "\nProgram Head:\t\t" + programHead +
+                                "\nProgram Level:\t\t" + determineProgramLevel();
         }
 }
