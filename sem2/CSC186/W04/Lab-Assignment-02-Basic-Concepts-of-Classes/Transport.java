@@ -25,26 +25,29 @@ public class Transport {
         private double price;
         private double discountRate;
 
-        // Constructors
-        public Transport() {
+        /* Constructors */
+        public Transport() { // Default Constructor
                 registrationNumber = "";
                 brand = "";
                 price = 0.00;
         }
 
+        // Normal Constructor
         public Transport(String registrationNumber, String brand, double price) {
                 this.registrationNumber = registrationNumber.toUpperCase();
                 this.brand = brand;
                 this.price = price;
         }
 
+        // Copy Constructor
         public Transport(Transport otherTransport) {
                 this.registrationNumber = otherTransport.registrationNumber;
                 this.brand = otherTransport.brand;
                 this.price = otherTransport.price;
         }
+        /* Constructors */
 
-        // Setters
+        /* Setters */
         public void setRegistrationNumber(String registrationNumber) {
                 this.registrationNumber = registrationNumber.toUpperCase();
         }
@@ -60,8 +63,9 @@ public class Transport {
         public void setDiscountRate(double discountRate) {
                 this.discountRate = discountRate;
         }
+        /* Setters */
 
-        // Getters
+        /* Getters */
         public String getRegistrationNumber() {
                 return registrationNumber;
         }
@@ -77,8 +81,9 @@ public class Transport {
         public double getDicountRate() {
                 return discountRate;
         }
+        /* Getters */
 
-        // Processors
+        /* Processors */
         public boolean transportSelangor() {
                 if (registrationNumber.startsWith("B"))
                         return true;
@@ -90,6 +95,7 @@ public class Transport {
                 this.discountRate = discountRate;
                 return price * (1 - discountRate);
         }
+        /* Processors */
 
         // Printer
         public String toString() {
