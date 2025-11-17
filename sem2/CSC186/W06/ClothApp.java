@@ -44,9 +44,6 @@ public class ClothApp {
             keyboard.nextLine();
         }
 
-        for (Cloth c : cloth)
-            System.out.print(c);
-
         System.out.println("\nList of Customers: ");
         for (Cloth c : cloth)
             System.out.println(c);
