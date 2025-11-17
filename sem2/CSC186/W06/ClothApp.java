@@ -24,41 +24,41 @@ public class ClothApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         int numberOfCustomers = 2;
-        Cloth[] cloths = new Cloth[numberOfCustomers];
+        Cloth[] cloth = new Cloth[numberOfCustomers];
 
         double totalPayment = 0;
         int customersWithMoreThan10Meters = 0;
 
-        for (Cloth c : cloths) {
-            c = new Cloth();
+        for (int i = 0; i < cloth.length; i++) {
+            cloth[i] = new Cloth();
 
             System.out.print("\nEnter your name: ");
-            c.setName(keyboard.nextLine());
+            cloth[i].setName(keyboard.nextLine());
 
             System.out.print("Enter cloth price: ");
-            c.setPrice(keyboard.nextDouble());
+            cloth[i].setPrice(keyboard.nextDouble());
             keyboard.nextLine();
 
             System.out.print("Enter cloth length: ");
-            c.setLength(keyboard.nextDouble());
+            cloth[i].setLength(keyboard.nextDouble());
             keyboard.nextLine();
         }
 
-        for (Cloth c : cloths)
+        for (Cloth c : cloth)
             System.out.print(c);
 
         System.out.println("\nList of Customers: ");
-        for (Cloth c : cloths)
+        for (Cloth c : cloth)
             System.out.println(c);
 
         keyboard.close();
 
-        for (Cloth c : cloths) {
+        for (Cloth c : cloth) {
             totalPayment += c.calcPayment();
         }
         System.out.printf("\nTotal payment from all customers: RM%,.2f", totalPayment);
 
-        for (Cloth c : cloths) {
+        for (Cloth c : cloth) {
             if (c.getLength() > 10.00) {
                 customersWithMoreThan10Meters++;
             }
@@ -67,13 +67,13 @@ public class ClothApp {
 
         double highestPayment = -9999999.99;
         int index = 0;
-        for (Cloth c : cloths) {
+        for (Cloth c : cloth) {
             if (c.calcPayment() > highestPayment) {
                 highestPayment = c.calcPayment();
             } else {
                 index++;
             }
         }
-        System.out.println("\nCustomer with the highest payment:" + cloths[index]);
+        System.out.println("\nCustomer with the highest payment:" + cloth[index]);
     }
 }
