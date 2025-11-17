@@ -75,23 +75,23 @@ public class PaperRechecking {
     /* Setters */
 
     /* Getters */
-    public String setStudentID() {
+    public String getStudentID() {
         return studentID;
     }
 
-    public String setStudentName() {
+    public String getStudentName() {
         return studentName;
     }
 
-    public String setSubjectCode() {
+    public String getSubjectCode() {
         return subjectCode;
     }
 
-    public int setPreviousMark() {
+    public int getPreviousMark() {
         return previousMark;
     }
 
-    public int setNewMark() {
+    public int getNewMark() {
         return newMark;
     }
     /* Getters */

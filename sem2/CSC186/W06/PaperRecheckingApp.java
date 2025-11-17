@@ -23,7 +23,7 @@ import java.util.Scanner;
 public class PaperRecheckingApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        PaperRechecking[] pRechecking = new PaperRechecking[100];
+        PaperRechecking[] pRechecking = new PaperRechecking[2];
 
         for (int i = 0; i < pRechecking.length; i++) {
             pRechecking[i] = new PaperRechecking();
@@ -45,22 +45,35 @@ public class PaperRecheckingApp {
             pRechecking[i].setNewMark(keyboard.nextInt());
             keyboard.nextLine();
 
-            System.out.println(pRechecking[i]);
+        }
+        keyboard.close();
+
+        for (PaperRechecking p : pRechecking)
+            System.out.println(p);
+
+        // Ali bin Hassan
+        int totalCodes = 0;
+        for (PaperRechecking p : pRechecking) {
+            if (p.getStudentName().equalsIgnoreCase("Ali bin Hassan")) {
+                totalCodes++;
+                System.out.println("Subject Code: " + p.getSubjectCode());
+                p.displayChanges();
+            }
         }
 
-        System.out.println(
-                "Number of students with the same marks after rechecking: " + studentsWithTheSameMarks(pRechecking));
+        // Calculate and display total codes and price
+        double totalPrice = totalCodes * 50.00;
+        System.out.println("Total Codes: " + totalCodes);
+        System.out.printf("Total Price: RM %,.2f", totalPrice);
 
-        keyboard.close();
-    }
-
-    public static int studentsWithTheSameMarks(PaperRechecking[] paperRechecking) {
+        // Count and display the number of students with the same marks after rechecking
         int studentsWithTheSameMarks = 0;
-        for (PaperRechecking p : paperRechecking) {
-            if (p.setPreviousMark() == p.setNewMark()) {
+        for (PaperRechecking p : pRechecking) {
+            if (p.getPreviousMark() == p.getNewMark()) {
                 studentsWithTheSameMarks++;
             }
         }
-        return studentsWithTheSameMarks;
+        System.out.println("\nNumber of students with the same marks after rechecking: " + studentsWithTheSameMarks);
+
     }
 }
