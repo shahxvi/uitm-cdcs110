@@ -74,18 +74,18 @@ public class HomeCare {
 
         switch (serviceType) {
             case 'P':
-                price = 60.00;
+                price = 60.00 * duration;
                 break;
             case 'T':
-                price = 120.00;
+                price = 120.00 * duration;
                 break;
             case 'B':
-                price = 80.00;
+                price = 80.00 * duration;
                 break;
         }
 
         if (duration > 5) {
-            return price * (1 - 0.05);
+            return (price * duration) * (1 - 0.05);
         }
 
         return price;

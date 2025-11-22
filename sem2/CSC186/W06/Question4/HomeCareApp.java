@@ -23,11 +23,75 @@ import java.util.Scanner;
 public class HomeCareApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        HomeCare[] assist = new HomeCare[30];
+        HomeCare[] assist = new HomeCare[2];
+        Staff[] stf = new Staff[2];
+        double totalChargeForPhysiotherapy = 0;
 
         for (int i = 0; i < assist.length; i++) {
+            // Get the info of the staff that's incharge
+            System.out.println("\nPlease fill in your staff details:- ");
+            System.out.print("Please enter your name: ");
+            String staffName = keyboard.nextLine();
+
+            System.out.print("Please enter your ID: ");
+            String staffID = keyboard.nextLine();
+
+            System.out.print("Please enter your contact number: ");
+            String staffContact = keyboard.nextLine();
+
+            stf[i] = new Staff(staffName, staffID, staffContact);
+
+            // Get customer details
+            System.out.print("\nPlease enter the customer's name: ");
+            String custName = keyboard.nextLine();
+
+            System.out.print("Please enter " + custName + "'s phone number: ");
+            String phoneNo = keyboard.nextLine();
+
+            System.out.print("Please " + custName + "'s location: ");
+            String location = keyboard.nextLine();
+
+            System.out.println("| Service Type | Service Type Description | Price/hour (RM) |");
+            System.out.println("| ------------ | ------------------------ | --------------- |");
+            System.out.println("| P            | Basic Personal Care      | 60.00           |");
+            System.out.println("| T            | Physiotherapy            | 120.00          |");
+            System.out.println("| B            | Baby Care                | 80.00           |");
+            System.out.print("Please enter " + custName + "'s service type: ");
+            char serviceType = Character.toUpperCase(keyboard.next().charAt(0));
+
+            while (serviceType != 'P' && serviceType != 'T' && serviceType != 'B') {
+                System.out.print("Please enter a valid service type (P/T/B): ");
+                serviceType = Character.toUpperCase(keyboard.next().charAt(0));
+            }
+
+            System.out.print("Please enter the duration of service (in hours): ");
+            int duration = keyboard.nextInt();
+            keyboard.nextLine();
+
+            assist[i] = new HomeCare(custName, phoneNo, location, serviceType, duration, stf[i]);
+        }
+        keyboard.close();
+
+        // Output
+        for (int i = 0; i < assist.length; i++) {
+            // System.out.println(assist[i].getStf());
+            System.out.println("\nStaff incharge: " + stf[i].getStaffName());
+            System.out.println("ID: " + stf[i].getStaffID());
+            System.out.println("Contact : " + stf[i].getStaffContact());
+            System.out.println("Customer Name: " + assist[i].getCustName());
+            System.out.println("Customer Phone Number: " + assist[i].getPhoneNo());
+            System.out.println("Customer Location : " + assist[i].getPhoneNo());
+            System.out.println("Customer Location : " + assist[i].getPhoneNo());
+            System.out.println("Service Type: " + assist[i].getServiceType());
+            System.out.println("Duration (hours): " + assist[i].getDuration());
+            System.out.println("Total Charges: RM" + assist[i].calcServiceCharge());
         }
 
-        // Calculate total charges and display customers who choose physiotherapy
+        // Total charge for physiotherapy
+        for (HomeCare a : assist) {
+            if (a.getServiceType() == 'T')
+                totalChargeForPhysiotherapy += a.calcServiceCharge();
+        }
+        System.out.println("\nTotal Charges for Physiotherapy: RM" + totalChargeForPhysiotherapy);
     }
 }
