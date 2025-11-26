@@ -23,8 +23,8 @@ import java.util.Scanner;
 public class HomeCareApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        HomeCare[] assist = new HomeCare[2];
-        Staff[] stf = new Staff[2];
+        HomeCare[] assist = new HomeCare[30];
+        Staff[] stf = new Staff[30];
         double totalChargeForPhysiotherapy = 0;
 
         for (int i = 0; i < assist.length; i++) {
