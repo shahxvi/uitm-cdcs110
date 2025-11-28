@@ -23,8 +23,14 @@ import java.util.Scanner;
 public class GPACalculator {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        Student[] student = new Student[1];
-        Subject[] subject = new Subject[1];
+        int numberOfStudent;
+
+        System.out.print("Enter the number of students: ");
+        numberOfStudent = keyboard.nextInt();
+        keyboard.nextLine();
+
+        Student[] student = new Student[numberOfStudent];
+        int[] totalCreditHours = new int[numberOfStudent];
 
         for (int i = 0; i < student.length; i++) {
             System.out.print("\nPlease enter your name: ");
@@ -38,8 +44,9 @@ public class GPACalculator {
             int part = keyboard.nextInt();
             keyboard.nextLine();
 
+            Subject[] subject = new Subject[6];
             for (int j = 0; j < subject.length; j++) {
-                System.out.print((j + 1) + "# Please enter your subject code: ");
+                System.out.print("\n" + (j + 1) + "# Please enter your subject code: ");
                 String codeSubject = keyboard.nextLine();
 
                 System.out.print((j + 1) + "# Please enter your subject name: ");
@@ -48,6 +55,7 @@ public class GPACalculator {
                 System.out.print((j + 1) + "# Please enter " + codeSubject + " credit hour: ");
                 int creditHour = keyboard.nextInt();
                 keyboard.nextLine();
+                totalCreditHours[i] += creditHour;
 
                 System.out.print((j + 1) + "# Please enter your grade: ");
                 String grade = keyboard.nextLine();
@@ -55,11 +63,44 @@ public class GPACalculator {
                 subject[j] = new Subject(codeSubject, subjectName, creditHour, grade);
             }
             student[i] = new Student(name, noMatrix, part, subject);
+
         }
         keyboard.close();
 
-        for (int i = 0; i < subject.length; i++) {
+        // Output
+        for (int i = 0; i < student.length; i++) {
             System.out.println(student[i]);
+            System.out.println("\nTotal Credit Hours: " + totalCreditHours[i]);
+            System.out.printf("GPA : %.2f\n", student[i].calcGPA());
         }
+
+        // Number of students who got GPA greater than 3.00
+        int greaterThan3 = 0;
+        for (Student s : student) {
+            if (s.calcGPA() >= 3.00)
+                greaterThan3++;
+        }
+        System.out.println("\nThe number of students who got GPA greater than 3.00: " + greaterThan3);
+
+        // Display the number of students who got dean list
+        int deanList = 0;
+        for (Student s : student) {
+            if (s.calcGPA() >= 3.67)
+                deanList++;
+        }
+        System.out.println("\nThe number of students who got dean list: " + deanList);
+
+        // Student with the highest GPA
+        double highestGPA = -9.99;
+        int index = 0;
+        for (int i = 0; i < student.length; i++) {
+            if (student[i].calcGPA() > highestGPA) {
+                highestGPA = student[i].calcGPA();
+                index = i;
+            }
+        }
+        System.out.println("\nThe student with the highest GPA");
+        System.out.println("Name: " + student[index].getName());
+        System.out.println("Matrix Number: " + student[index].getNoMatrix());
     }
 }

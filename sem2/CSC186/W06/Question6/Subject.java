@@ -56,6 +56,6 @@ public class Subject {
     }
 
     public String toString() {
-        return String.format("%s\t\t\t%s\t\t%s", codeSubject, subjectName, grade);
+        return String.format("%-6s\t\t%-26s\t%s", codeSubject, subjectName, grade);
     }
 }

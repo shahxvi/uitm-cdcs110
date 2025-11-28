@@ -10,8 +10,7 @@
  * The above copyright notice and this permission notice shall be included in shall
  * copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
@@ -22,7 +21,7 @@ public class Student {
     private String name;
     private int noMatrix;
     private int part;
-    private Subject[] subject = new Subject[1];
+    private Subject[] subject = new Subject[6];
 
     public Student(String name, int noMatrix, int part, Subject[] subject) {
         this.name = name;
@@ -111,10 +110,10 @@ public class Student {
         String str3 = "";
 
         for (int i = 0; i < subject.length; i++) {
-            str1 = String.format("\n\nStudent Name: %s\nNo. Matrix: %d\nPart: %d\nCourse: %s", name, noMatrix, part,
-                    subject[i].getCodeSubject());
+            str1 = String.format("\n\nStudent Name: %s\nNo. Matrix: %d\nPart: %d", name, noMatrix, part);
             str2 = String.format(
-                    "\n\nCode Subject\t\tSubject\t\tGrade\t\tGradePoint\t\tCredit Hours\t\tQuality Points (GP x CH)");
+                    "\n\n%-12s\t%-7s\t\t\t\t%-5s\t\t%-11s\t\t%-12s\t\t%-24s", "Code Subject", "Subject", "Grade",
+                    "Grade Point", "Credit Hours", "Quality Points (GP x CH)");
 
             double[] gradePoint = new double[subject.length];
             for (int j = 0; j < subject.length; j++) {
@@ -143,9 +142,8 @@ public class Student {
                 else
                     gradePoint[j] = 0.00;
             }
-            str3 = String.format("\n%s\t\t%.2f\t\t\t%d\t\t\t%.2f", subject[i], gradePoint[i],
-                    subject[i].getCreditHour(),
-                    calcGPA());
+            str3 += String.format("\n" + subject[i] + "\t\t%.2f\t\t\t%d\t\t\t%.2f", gradePoint[i],
+                    subject[i].getCreditHour(), gradePoint[i] * subject[i].getCreditHour());
         }
         return str1 + str2 + str3;
     }
