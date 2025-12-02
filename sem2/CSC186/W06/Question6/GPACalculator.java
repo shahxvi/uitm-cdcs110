@@ -44,8 +44,7 @@ public class GPACalculator {
             int part = keyboard.nextInt();
             keyboard.nextLine();
 
-            Subject[] subject = new Subject[6];
-            for (int j = 0; j < subject.length; j++) {
+            for (int j = 0; j < 6; j++) {
                 System.out.print("\n" + (j + 1) + "# Please enter your subject code: ");
                 String codeSubject = keyboard.nextLine();
 
@@ -60,10 +59,8 @@ public class GPACalculator {
                 System.out.print((j + 1) + "# Please enter your grade: ");
                 String grade = keyboard.nextLine();
 
-                subject[j] = new Subject(codeSubject, subjectName, creditHour, grade);
+                student[i].getSubject()[j] = new Subject(codeSubject, subjectName, creditHour, grade);
             }
-            student[i] = new Student(name, noMatrix, part, subject);
-
         }
         keyboard.close();
 
