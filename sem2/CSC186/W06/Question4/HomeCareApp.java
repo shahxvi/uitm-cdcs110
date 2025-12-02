@@ -23,8 +23,13 @@ import java.util.Scanner;
 public class HomeCareApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        HomeCare[] assist = new HomeCare[30];
-        Staff[] stf = new Staff[30];
+        System.out.print("Please enter the number of staff & customer: ");
+        int size = keyboard.nextInt();
+        keyboard.nextLine();
+
+        HomeCare[] assist = new HomeCare[size];
+        Staff[] stf = new Staff[size];
+
         double totalChargeForPhysiotherapy = 0;
 
         for (int i = 0; i < assist.length; i++) {
@@ -80,8 +85,7 @@ public class HomeCareApp {
             System.out.println("Contact : " + stf[i].getStaffContact());
             System.out.println("Customer Name: " + assist[i].getCustName());
             System.out.println("Customer Phone Number: " + assist[i].getPhoneNo());
-            System.out.println("Customer Location : " + assist[i].getPhoneNo());
-            System.out.println("Customer Location : " + assist[i].getPhoneNo());
+            System.out.println("Customer Location : " + assist[i].getLocation());
             System.out.println("Service Type: " + assist[i].getServiceType());
             System.out.println("Duration (hours): " + assist[i].getDuration());
             System.out.println("Total Charges: RM" + assist[i].calcServiceCharge());
