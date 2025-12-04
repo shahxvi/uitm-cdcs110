@@ -3,3 +3,4 @@ Matric Number	Name                	Part
 2004589748		BAKRI SAID          	4
 2003125985		BAK A/K BONG        	5
 2004885885		FIRDAUS BIN AMIN SHAH	3
+Number of male students for CS111: 3

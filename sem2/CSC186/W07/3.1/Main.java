@@ -24,7 +24,9 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         final int CS110 = 0;
+        int numberOfMaleCS110 = 0;
         final int CS111 = 1;
+        int numberOfMaleCS111 = 0;
         PrintWriter[] outputFile = new PrintWriter[2];
 
         try {
@@ -43,12 +45,16 @@ public class Main {
                 String[] tokens = record.split(";");
                 if (tokens[2].equalsIgnoreCase("CS110") && tokens[4].equalsIgnoreCase("M")) {
                     outputFile[CS110].printf("%-10s\t\t%-20s\t%-1s\n", tokens[0], tokens[1], tokens[3]);
+                    numberOfMaleCS110++;
                 }
                 if (tokens[2].equalsIgnoreCase("CS111") && tokens[4].equalsIgnoreCase("M")) {
                     outputFile[CS111].printf("%-10s\t\t%-20s\t%-1s\n", tokens[0], tokens[1], tokens[3]);
+                    numberOfMaleCS111++;
                 }
             }
             inputReader.close();
+            outputFile[CS110].println("Number of male students for CS110: " + numberOfMaleCS110);
+            outputFile[CS111].println("Number of male students for CS111: " + numberOfMaleCS111);
         } catch (IOException e) {
             System.out.println("An error occurred");
         } finally {
