@@ -50,7 +50,7 @@ public class Main {
             }
             inputReader.close();
         } catch (IOException e) {
-            System.out.println("An erorr has accoured");
+            System.out.println("An error occurred");
         } finally {
             for (int i = 0; i < outputFile.length; i++)
                 outputFile[i].close();
