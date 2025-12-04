@@ -33,7 +33,7 @@ public class Main {
             outputFile[CS110] = new PrintWriter("CS110Male.txt");
             outputFile[CS111] = new PrintWriter("CS111Male.txt");
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < outputFile.length; i++) {
                 outputFile[i].println("\t\t\tMale Students from " + (i == 0 ? "CS110" : "CS111"));
                 outputFile[i].printf("%s\t%-20s\t%-1s\n", "Matric Number", "Name", "Part");
             }
@@ -48,10 +48,11 @@ public class Main {
                     outputFile[CS111].printf("%-10s\t\t%-20s\t%-1s\n", tokens[0], tokens[1], tokens[3]);
                 }
             }
+            inputReader.close();
         } catch (IOException e) {
             System.out.println("An erorr has accoured");
         } finally {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < outputFile.length; i++)
                 outputFile[i].close();
         }
     }
