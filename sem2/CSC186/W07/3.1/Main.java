@@ -41,10 +41,10 @@ public class Main {
             while (inputReader.hasNext()) {
                 String record = inputReader.nextLine();
                 String[] tokens = record.split(";");
-                if (tokens[2].equalsIgnoreCase("CS110") && tokens[4].equals("M")) {
+                if (tokens[2].equalsIgnoreCase("CS110") && tokens[4].equalsIgnoreCase("M")) {
                     outputFile[CS110].printf("%-10s\t\t%-20s\t%-1s\n", tokens[0], tokens[1], tokens[3]);
                 }
-                if (tokens[2].equalsIgnoreCase("CS111") && tokens[4].equals("M")) {
+                if (tokens[2].equalsIgnoreCase("CS111") && tokens[4].equalsIgnoreCase("M")) {
                     outputFile[CS111].printf("%-10s\t\t%-20s\t%-1s\n", tokens[0], tokens[1], tokens[3]);
                 }
             }
