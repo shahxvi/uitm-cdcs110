@@ -99,10 +99,8 @@ public class Land {
 
     // Printer
     public String toString() {
-        return "ID\t\t:\t" + id +
-                "\nOwner Name\t:\t" + ownerName +
-                "\nHouse Type\t:\t" + houseType +
-                "\nArea\t\t:\t" + area + "m³" +
-                "\nTax Price\t:\tRM" + calculateTaxRate();
+        return String.format(
+                "ID\t\t:\t%s\nOwner Name\t:\t%s\nHouse Type\t:\t%c\nArea\t\t:\t%.2fm³\nTax Price\t:\tRM%,.2f", id,
+                ownerName, houseType, area, calculateTaxRate());
     }
 }

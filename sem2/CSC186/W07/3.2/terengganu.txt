@@ -1,5 +1,0 @@
-Type  	Plate Number	Price (RM)
-------	------------	----------
-Kelisa	TAA3375     	35000.00  
-Waja  	TAP5609     	65000.00  
-Myvi  	TAN789      	55000.00  

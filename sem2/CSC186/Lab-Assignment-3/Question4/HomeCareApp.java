@@ -28,7 +28,6 @@ public class HomeCareApp {
         keyboard.nextLine();
 
         HomeCare[] assist = new HomeCare[size];
-        Staff[] stf = new Staff[size];
 
         double totalChargeForPhysiotherapy = 0;
 
@@ -43,8 +42,6 @@ public class HomeCareApp {
 
             System.out.print("Please enter your contact number: ");
             String staffContact = keyboard.nextLine();
-
-            stf[i] = new Staff(staffName, staffID, staffContact);
 
             // Get customer details
             System.out.print("\nPlease enter the customer's name: ");
@@ -73,16 +70,17 @@ public class HomeCareApp {
             int duration = keyboard.nextInt();
             keyboard.nextLine();
 
-            assist[i] = new HomeCare(custName, phoneNo, location, serviceType, duration, stf[i]);
+            assist[i] = new HomeCare(custName, phoneNo, location, serviceType, duration,
+                    new Staff(staffName, staffID, staffContact));
         }
         keyboard.close();
 
         // Output
         for (int i = 0; i < assist.length; i++) {
             // System.out.println(assist[i].getStf());
-            System.out.println("\nStaff incharge: " + stf[i].getStaffName());
-            System.out.println("ID: " + stf[i].getStaffID());
-            System.out.println("Contact : " + stf[i].getStaffContact());
+            System.out.println("\nStaff incharge: " + assist[i].getStf().getStaffName());
+            System.out.println("ID: " + assist[i].getStf().getStaffID());
+            System.out.println("Contact : " + assist[i].getStf().getStaffContact());
             System.out.println("Customer Name: " + assist[i].getCustName());
             System.out.println("Customer Phone Number: " + assist[i].getPhoneNo());
             System.out.println("Customer Location : " + assist[i].getLocation());

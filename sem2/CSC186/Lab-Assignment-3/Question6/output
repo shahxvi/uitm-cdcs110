@@ -1,0 +1,109 @@
+Enter the number of students: 2
+
+Please enter your name: Abu Bakar bin Mahmud
+Please enter your matrix number: 2023653997
+Please enter your part / semester: 2
+
+1# Please enter your subject code: MAT123
+1# Please enter your subject name: Math
+1# Please enter MAT123 credit hour: 3
+1# Please enter your grade: A
+
+2# Please enter your subject code: CCU127
+2# Please enter your subject name: English
+2# Please enter CCU127 credit hour: 3
+2# Please enter your grade: B+
+
+3# Please enter your subject code: HST101
+3# Please enter your subject name: History
+3# Please enter HST101 credit hour: 4
+3# Please enter your grade: B
+
+4# Please enter your subject code: SCI201
+4# Please enter your subject name: Science
+4# Please enter SCI201 credit hour: 2
+4# Please enter your grade: A-
+
+5# Please enter your subject code: CSC221
+5# Please enter your subject name: Programming
+5# Please enter CSC221 credit hour: 3
+5# Please enter your grade: A
+
+6# Please enter your subject code: SCU224
+6# Please enter your subject name: Security
+6# Please enter SCU224 credit hour: 3
+6# Please enter your grade: B-
+
+Please enter your name: Irfan Shah bin Maizul Hisham
+Please enter your matrix number: 2025171523
+Please enter your part / semester: 2
+
+1# Please enter your subject code: CSC159
+1# Please enter your subject name: Computer Organization
+1# Please enter CSC159 credit hour: 4
+1# Please enter your grade: A
+
+2# Please enter your subject code: CSC186
+2# Please enter your subject name: Object Oriented Programming
+2# Please enter CSC186 credit hour: 4
+2# Please enter your grade: A
+
+3# Please enter your subject code: MAT183
+3# Please enter your subject name: Calculus I
+3# Please enter MAT183 credit hour: 4
+3# Please enter your grade: A
+
+4# Please enter your subject code: ACC117
+4# Please enter your subject name: Accounting
+4# Please enter ACC117 credit hour: 2
+4# Please enter your grade: A
+
+5# Please enter your subject code: LCC112
+5# Please enter your subject name: English II
+5# Please enter LCC112 credit hour: 2
+5# Please enter your grade: A
+
+6# Please enter your subject code: CTU152
+6# Please enter your subject name: Islam II
+6# Please enter CTU152 credit hour: 2
+6# Please enter your grade: A
+
+
+Student Name: Abu Bakar bin Mahmud
+No. Matrix: 2023653997
+Part: 2
+
+Code Subject    Subject                     Grade   Grade Point     Credit Hours    Quality Points (GP x CH)
+MAT123          Math                        A       4.00            3               12.00
+CCU127          English                     B+      3.33            3               9.99
+HST101          History                     B       3.00            4               12.00
+SCI201          Science                     A-      3.67            2               7.34
+CSC221          Programming                 A       4.00            3               12.00
+SCU224          Security                    B-      2.67            3               8.01
+
+Total Credit Hours: 18
+GPA : 3.41
+
+
+Student Name: Irfan Shah bin Maizul Hisham
+No. Matrix: 2025171523
+Part: 2
+
+Code Subject    Subject                     Grade   Grade Point     Credit Hours    Quality Points (GP x CH)
+CSC159          Computer Organization       A       4.00            4               16.00
+CSC186          Object Oriented Programming A       4.00            4               16.00
+MAT183          Calculus I                  A       4.00            4               16.00
+ACC117          Accounting                  A       4.00            2               8.00
+LCC112          English II                  A       4.00            2               8.00
+CTU152          Islam II                    A       4.00            2               8.00
+
+Total Credit Hours: 18
+GPA : 4.00
+
+The number of students who got GPA greater than 3.00: 2
+
+The number of students who got dean list: 1
+
+The student with the highest GPA
+Name: Irfan Shah bin Maizul Hisham
+Matrix Number: 2025171523

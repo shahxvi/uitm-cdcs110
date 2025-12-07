@@ -23,7 +23,13 @@ import java.util.Scanner;
 public class PaperRecheckingApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        PaperRechecking[] pRechecking = new PaperRechecking[2];
+        int numberOfStudents;
+
+        System.out.print("Please enter the number of students: ");
+        numberOfStudents = keyboard.nextInt();
+        keyboard.nextLine();
+
+        PaperRechecking[] pRechecking = new PaperRechecking[numberOfStudents];
 
         for (int i = 0; i < pRechecking.length; i++) {
             pRechecking[i] = new PaperRechecking();
@@ -48,6 +54,8 @@ public class PaperRecheckingApp {
         }
         keyboard.close();
 
+        System.out.println();
+
         for (PaperRechecking p : pRechecking)
             System.out.println(p);
 
@@ -60,8 +68,6 @@ public class PaperRecheckingApp {
                 p.displayChanges();
             }
         }
-
-        // Calculate and display total codes and price
         double totalPrice = totalCodes * 50.00;
         System.out.println("Total Codes: " + totalCodes);
         System.out.printf("Total Price: RM %,.2f", totalPrice);

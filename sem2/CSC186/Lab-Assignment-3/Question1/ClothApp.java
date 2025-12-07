@@ -23,7 +23,12 @@ import java.util.Scanner;
 public class ClothApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        int numberOfCustomers = 2;
+        int numberOfCustomers;
+
+        System.out.print("Enter the number of customer: ");
+        numberOfCustomers = keyboard.nextInt();
+        keyboard.nextLine();
+
         Cloth[] cloth = new Cloth[numberOfCustomers];
 
         double totalPayment = 0;
@@ -64,11 +69,10 @@ public class ClothApp {
 
         double highestPayment = -9999999.99;
         int index = 0;
-        for (Cloth c : cloth) {
-            if (c.calcPayment() > highestPayment) {
-                highestPayment = c.calcPayment();
-            } else {
-                index++;
+        for (int i = 0; i < cloth.length; i++) {
+            if (cloth[i].calcPayment() > highestPayment) {
+                highestPayment = cloth[i].calcPayment();
+                index = i;
             }
         }
         System.out.println("\nCustomer with the highest payment:" + cloth[index]);

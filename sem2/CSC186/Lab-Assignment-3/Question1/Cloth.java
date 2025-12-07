@@ -71,15 +71,15 @@ public class Cloth {
     }
     /* Getters */
 
-    /* Printer */
-    public String toString() {
-        return String.format("\nName: %s\nCloth Price: RM%,.2f\nLength: %,.2f\nPayment: RM%,.2f\n", name, price, length,
-                calcPayment());
-    }
-
     /* Processor */
     public double calcPayment() {
         double tax = 0.06;
         return (price * length) * (1 - tax);
+    }
+
+    /* Printer */
+    public String toString() {
+        return String.format("\nName: %s\nCloth Price: RM%,.2f\nLength: %,.2f\nPayment: RM%,.2f\n", name, price, length,
+                calcPayment());
     }
 }

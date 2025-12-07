@@ -23,8 +23,13 @@ import java.util.Scanner;
 public class LandApp {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        int size = 2;
-        Land[] land = new Land[size];
+        int numberOfCustomer;
+
+        System.out.print("Please enter the nummber of customer: ");
+        numberOfCustomer = keyboard.nextInt();
+        keyboard.nextLine();
+
+        Land[] land = new Land[numberOfCustomer];
 
         // Get ID
         for (int i = 0; i < land.length; i++) {
@@ -75,10 +80,14 @@ public class LandApp {
 
         // Calculate and display average tax rate for Semi-Detached houses
         double semiDetactedAverageTaxRate = 0;
+        int num = 0;
         for (Land l : land) {
-            if (l.getHousetype() == 'S')
+            if (l.getHousetype() == 'S') {
                 semiDetactedAverageTaxRate += l.calculateTaxRate();
+                num++;
+            }
         }
+        semiDetactedAverageTaxRate /= num;
         System.out.printf("\nAverage Tax Rate for Semi-Detached House: RM%,.2f", semiDetactedAverageTaxRate);
 
         // Calculate and display highest tax rate for a bungalow house
