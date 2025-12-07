@@ -1,0 +1,7 @@
+			Male Students from CS110
+Matric Number	Name                	Part
+2004152689		AHMAD DAUH BIN JAMIL	4
+2004256589		ALI BIN IZHAR       	4
+2003876238		JASRI AIZAT         	5
+2003125897		ANI BIN ISMAIL      	5
+Number of male students for CS110: 4
