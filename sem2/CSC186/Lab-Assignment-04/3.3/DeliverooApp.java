@@ -42,7 +42,7 @@ public class DeliverooApp {
             output.close();
 
             System.out.println("Number of deliveries with start time at 9PM or later: " + deliveries9pmAndLater);
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             System.out.println("File not found.");
         }
     }

@@ -1,0 +1,17 @@
+Details of request for Quiz:
+Staff ID    Number of pages for master copy    Number of copies required    Total
+187765      12                                 65                           780  
+
+Staff ID    Number of pages for master copy    Number of copies required    Total
+298344      5                                  100                          500  
+
+Staff ID    Number of pages for master copy    Number of copies required    Total
+186529      3                                  80                           240  
+
+Staff ID    Number of pages for master copy    Number of copies required    Total
+201238      13                                 182                          2366 
+
+Staff ID    Number of pages for master copy    Number of copies required    Total
+127754      11                                 140                          1540 
+
+Number of reams needed: 10

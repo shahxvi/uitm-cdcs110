@@ -21,45 +21,67 @@
 import java.util.Scanner;
 import java.io.*;
 
-public class Main {
+public class FTMSKApp {
     public static void main(String[] args) {
         final int CS110 = 0;
         int numberOfMaleCS110 = 0;
         final int CS111 = 1;
         int numberOfMaleCS111 = 0;
-        PrintWriter[] outputFile = new PrintWriter[2];
 
         try {
             File inputFile = new File("FTMSK.txt");
             Scanner inputReader = new Scanner(inputFile);
-            outputFile[CS110] = new PrintWriter("CS110Male.txt");
-            outputFile[CS111] = new PrintWriter("CS111Male.txt");
 
+            // Create File
+            PrintWriter[] outputFile = new PrintWriter[2];
+            for (int i = 0; i < outputFile.length; i++)
+                outputFile[i] = new PrintWriter((i == 0 ? "CS110" : "CS111") + "Male.txt");
+
+            // File header
             for (int i = 0; i < outputFile.length; i++) {
-                outputFile[i].println("\t\t\tMale Students from " + (i == 0 ? "CS110" : "CS111"));
-                outputFile[i].printf("%s\t%-20s\t%-1s\n", "Matric Number", "Name", "Part");
+                outputFile[i].println("            Male Students from " + (i == 0 ? "CS110" : "CS111"));
+                outputFile[i].printf("%-13s  %-21s  %-1s\n", "Matric Number", "Name", "Part");
             }
 
             while (inputReader.hasNext()) {
                 String record = inputReader.nextLine();
-                String[] tokens = record.split(";");
-                if (tokens[2].equalsIgnoreCase("CS110") && tokens[4].equalsIgnoreCase("M")) {
-                    outputFile[CS110].printf("%-10s\t\t%-20s\t%-1s\n", tokens[0], tokens[1], tokens[3]);
+                String[] token = record.split(";");
+
+                String matrixNumber = token[0];
+                String name = token[1];
+                String programCode = token[2];
+                String part = token[3];
+                String gender = token[4];
+
+                boolean isCS110 = programCode.equalsIgnoreCase("CS110");
+                boolean isCS111 = programCode.equalsIgnoreCase("CS111");
+                boolean isMale = gender.equalsIgnoreCase("M");
+
+                if (isCS110 && isMale) {
+                    outputFile[CS110].printf("%-13s  %-21s  %-1s\n", matrixNumber, name, part);
                     numberOfMaleCS110++;
                 }
-                if (tokens[2].equalsIgnoreCase("CS111") && tokens[4].equalsIgnoreCase("M")) {
-                    outputFile[CS111].printf("%-10s\t\t%-20s\t%-1s\n", tokens[0], tokens[1], tokens[3]);
+                if (isCS111 && isMale) {
+                    outputFile[CS111].printf("%-13s  %-21s  %-1s\n", matrixNumber, name, part);
                     numberOfMaleCS111++;
                 }
             }
             inputReader.close();
-            outputFile[CS110].println("Number of male students for CS110: " + numberOfMaleCS110);
-            outputFile[CS111].println("Number of male students for CS111: " + numberOfMaleCS111);
-        } catch (IOException e) {
-            System.out.println("An error occurred");
-        } finally {
+
+            for (int i = 0; i < outputFile.length; i++) {
+                String programCode = (i == 0) ? "CS110" : "CS111";
+                outputFile[i].println(
+                        "Number of male students for " + ((i == 0) ? "CS110" : "CS111") + ": " + numberOfMaleCS110);
+            }
+
             for (int i = 0; i < outputFile.length; i++)
                 outputFile[i].close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

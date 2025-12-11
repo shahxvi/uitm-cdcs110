@@ -76,7 +76,7 @@ public class CustomerServices {
         return wrk;
     }
 
-    public double clacServiceCharge() {
+    public double calcServiceCharge() {
         double price = 0;
         double discount = 0.03;
 

@@ -27,7 +27,7 @@ public class HomeCareApp {
         int size = keyboard.nextInt();
         keyboard.nextLine();
 
-        HomeCare[] assist = new HomeCare[size];
+        HomeCare[] assist = new HomeCare[30];
 
         double totalChargeForPhysiotherapy = 0;
 
