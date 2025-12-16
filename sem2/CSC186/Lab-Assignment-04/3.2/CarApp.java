@@ -22,20 +22,20 @@ public class CarApp {
             PrintWriter[] output = new PrintWriter[2];
             for (int i = 0; i < output.length; i++) {
                 output[i] = new PrintWriter((i == 0 ? "selangor" : "terengganu") + ".txt");
-                output[i].printf("%-6s\t%-12s\t%-10s\n", "Type", "Plate Number", "Price (RM)");
-                output[i].printf("%-6s\t%-12s\t%-10s\n", "------", "------------", "----------");
+                output[i].printf("%-6s    %-12s    %-10s\n", "Type", "Plate Number", "Price (RM)");
+                output[i].printf("%-6s    %-12s    %-10s\n", "------", "------------", "----------");
             }
 
             double totalPriceSelangor = 0;
             double totalPriceTerengganu = 0;
             for (Vehicle a : arrCar) {
                 if (a.getCarPlateNumber().startsWith("B")) { // Selangor License Plate
-                    output[selangor].printf("%-6s\t%-12s\t%-10.2f\n", a.getCarType(), a.getCarPlateNumber(),
+                    output[selangor].printf("%-6s    %-12s    %-10.2f\n", a.getCarType(), a.getCarPlateNumber(),
                             a.getCarPrice());
                     totalPriceSelangor += a.getCarPrice();
                 }
                 if (a.getCarPlateNumber().startsWith("T")) { // Terengganu License Plate
-                    output[terengganu].printf("%-6s\t%-12s\t%-10.2f\n", a.getCarType(), a.getCarPlateNumber(),
+                    output[terengganu].printf("%-6s    %-12s    %-10.2f\n", a.getCarType(), a.getCarPlateNumber(),
                             a.getCarPrice());
                     totalPriceTerengganu += a.getCarPrice();
                 }

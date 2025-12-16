@@ -11,7 +11,7 @@ public class DeliverooApp {
             double totalProfit = 0;
             int deliveries = 0;
             output.printf("Profit earned for each delivery\n");
-            output.printf("Date(Day)\t\t\tProfit\n");
+            output.printf("%-15s    %-6s\n", "Date(Day)", "Profit");
             output.printf("=====================================\n");
 
             int deliveries9pmAndLater = 0;
@@ -33,7 +33,7 @@ public class DeliverooApp {
                 totalProfit += profit;
                 deliveries++;
 
-                output.printf("%-10s(%-3s)\t\tRM%.2f\n", date, day.substring(0, 3), profit);
+                output.printf("%-10s(%-3s)    RM%.2f\n", date, day.substring(0, 3), profit);
             }
             output.printf("=====================================\n");
             output.printf("Average profit for each order: RM%.2f", (totalProfit / deliveries));
