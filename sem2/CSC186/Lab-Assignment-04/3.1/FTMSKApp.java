@@ -29,16 +29,14 @@ public class FTMSKApp {
             Scanner inputReader = new Scanner(inputFile);
 
             // Process and stores data in array
-            int recordCount = 10;
-            int fieldCount = 5;
-            String[][] data = new String[recordCount][fieldCount];
+            String[][] data = new String[10][5];
 
             int record = 0;
             while (inputReader.hasNext()) {
                 String aRecord = inputReader.nextLine();
                 String[] token = aRecord.split(";");
 
-                for (int field = 0; field < fieldCount; field++) {
+                for (int field = 0; field < data[record].length; field++) {
                     data[record][field] = token[field];
                 }
 
@@ -60,7 +58,7 @@ public class FTMSKApp {
                 outputFile[i].printf("%-13s  %-21s  %-1s\n", "Matric Number", "Name", "Part");
             }
 
-            for (record = 0; record < recordCount; record++) {
+            for (record = 0; record < data.length; record++) {
                 String matrixNumber = data[record][0];
                 String name = data[record][1];
                 String classes = data[record][2];
