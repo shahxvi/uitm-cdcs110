@@ -23,38 +23,52 @@ import java.io.*;
 
 public class FTMSKApp {
     public static void main(String[] args) {
-        final int CS110 = 0;
-        int numberOfMaleCS110 = 0;
-        final int CS111 = 1;
-        int numberOfMaleCS111 = 0;
-
         try {
+            // Input File
             File inputFile = new File("FTMSK.txt");
             Scanner inputReader = new Scanner(inputFile);
 
-            // Create File
-            PrintWriter[] outputFile = new PrintWriter[2];
-            for (int i = 0; i < outputFile.length; i++)
-                outputFile[i] = new PrintWriter((i == 0 ? "CS110" : "CS111") + "Male.txt");
+            // Process and stores data in array
+            int recordCount = 10;
+            int fieldCount = 5;
+            String[][] data = new String[recordCount][fieldCount];
 
-            // File header
+            int record = 0;
+            while (inputReader.hasNext()) {
+                String aRecord = inputReader.nextLine();
+                String[] token = aRecord.split(";");
+
+                for (int field = 0; field < fieldCount; field++) {
+                    data[record][field] = token[field];
+                }
+
+                record++;
+            }
+            inputReader.close();
+
+            // Output to file
+            final int CS110 = 0;
+            final int CS111 = 1;
+            int numberOfMaleCS110 = 0;
+            int numberOfMaleCS111 = 0;
+            PrintWriter[] outputFile = new PrintWriter[2];
+
+            // Create file and write file header
             for (int i = 0; i < outputFile.length; i++) {
+                outputFile[i] = new PrintWriter((i == 0 ? "CS110" : "CS111") + "Male.txt");
                 outputFile[i].println("            Male Students from " + (i == 0 ? "CS110" : "CS111"));
                 outputFile[i].printf("%-13s  %-21s  %-1s\n", "Matric Number", "Name", "Part");
             }
 
-            while (inputReader.hasNext()) {
-                String record = inputReader.nextLine();
-                String[] token = record.split(";");
+            for (record = 0; record < recordCount; record++) {
+                String matrixNumber = data[record][0];
+                String name = data[record][1];
+                String classes = data[record][2];
+                String part = data[record][3];
+                String gender = data[record][4];
 
-                String matrixNumber = token[0];
-                String name = token[1];
-                String programCode = token[2];
-                String part = token[3];
-                String gender = token[4];
-
-                boolean isCS110 = programCode.equalsIgnoreCase("CS110");
-                boolean isCS111 = programCode.equalsIgnoreCase("CS111");
+                boolean isCS110 = classes.equalsIgnoreCase("CS110");
+                boolean isCS111 = classes.equalsIgnoreCase("CS111");
                 boolean isMale = gender.equalsIgnoreCase("M");
 
                 if (isCS110 && isMale) {
@@ -66,16 +80,14 @@ public class FTMSKApp {
                     numberOfMaleCS111++;
                 }
             }
-            inputReader.close();
 
-            for (int i = 0; i < outputFile.length; i++) {
-                String programCode = (i == 0) ? "CS110" : "CS111";
-                outputFile[i].println(
-                        "Number of male students for " + ((i == 0) ? "CS110" : "CS111") + ": " + numberOfMaleCS110);
-            }
+            outputFile[CS110].println("Number of male students for CS110: " + numberOfMaleCS110);
+            outputFile[CS111].println("Number of male students for CS111: " + numberOfMaleCS111);
 
+            // Close Output File
             for (int i = 0; i < outputFile.length; i++)
                 outputFile[i].close();
+
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
