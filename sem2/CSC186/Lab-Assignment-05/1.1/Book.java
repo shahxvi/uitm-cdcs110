@@ -28,5 +28,33 @@ public class Book extends Product {
         this.numPages = numPages;
     }
 
-    public 
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getNumPages() {
+        return numPages;
+    }
+
+    public double calcPrice() {
+        double cost = 0.00;
+        double discountRate = 0.00;
+        cost = (numPages * 0.50);
+
+       if (cost <= 200)
+           discountRate = 0.02;
+       else if (cost >= 201 && cost <= 500)
+           discountRate = 0.05;
+       else
+           discountRate = 0.10;
+
+       return cost * (1 - discountRate);
+    }
+
+    public String toString() {
+        String str = super.toString();
+        str += String.format("\nID: %s \nTitle: %s \nAuthor: %s \nNumber Of Pages: %d \nPrice: RM%.2f", id, title, author, numPages, calcPrice());
+        return str;
+    }
+
 }
