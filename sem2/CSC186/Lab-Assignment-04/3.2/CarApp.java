@@ -47,8 +47,12 @@ public class CarApp {
             }
             System.out.println("Total price for cars manufactured in Selangor: RM" + totalPriceSelangor);
             System.out.println("Total price for cars manufactured in Terengganu: RM" + totalPriceTerengganu);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
-            System.out.println("File not found.");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }
