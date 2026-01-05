@@ -28,6 +28,7 @@ public class BookApp {
             books[i] = new Book(id, title, author, numPages);
         }
 
+        // Display all the object’s information, including the cost
         for (Book b : books) {
             System.out.println(); // newline
             System.out.println(b.toString());
