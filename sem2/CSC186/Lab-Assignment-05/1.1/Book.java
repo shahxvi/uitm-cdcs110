@@ -53,7 +53,7 @@ public class Book extends Product {
 
     public String toString() {
         String str = super.toString();
-        str += String.format("\nID: %s \nTitle: %s \nAuthor: %s \nNumber Of Pages: %d \nPrice: RM%.2f", id, title, author, numPages, calcPrice());
+        str += String.format("\nNumber Of Pages: %d \nPrice: RM%.2f", numPages, calcPrice());
         return str;
     }
 
