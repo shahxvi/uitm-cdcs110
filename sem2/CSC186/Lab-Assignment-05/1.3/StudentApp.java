@@ -8,15 +8,18 @@ public class StudentApp {
         Student[] students = new Student[50];
         int index = 0;
         do {
-            int option = -1;
+            int option;
             System.out.println("\n1 - Primary School (UPSR)");
             System.out.println("2 - Secondary School (PMR, SPM, STPM)");
 
-            while (option != 1 && option != 2) {
+            do {
                 System.out.print("Please enter your education level (1 / 2): ");
                 option = keyboard.nextInt();
                 keyboard.nextLine();
-            }
+            } while (option < 1 ||  option > 2);
+            
+            boolean primary = (option == 1);
+            boolean secondary = (option == 2);
 
             System.out.print("\nPlease enter your student ID: ");
             String studentID = keyboard.nextLine();
@@ -33,31 +36,37 @@ public class StudentApp {
 
             System.out.print("Would you like to take on extra languages? (Y/N): ");
             boolean extraLanguage = (keyboard.next().toUpperCase().charAt(0)) == 'Y';
+            keyboard.nextLine();
 
             System.out.print("Would you like to take extra computer course? (Y/N): ");
             boolean computerCourse = (keyboard.next().toUpperCase().charAt(0)) == 'Y';
+            keyboard.nextLine();
 
-            if (option == 1) { // Primary
+            if (primary) {
                 System.out.print("Please enter the number of total subjects: ");
                 int totalSubject = keyboard.nextInt();
                 keyboard.nextLine();
                 
-                students[index] = new Primary(studentID, studentName, age, nameOfSchool, extraLanguage, computerCourse, totalSubject);
-            } else if (option == 2) { // Secondary
+                students[index++] = new Primary(studentID, studentName, age, nameOfSchool, extraLanguage, computerCourse, totalSubject);
+            } else if (secondary) {
+                int level;
                 System.out.println("\n1 - PMR");
                 System.out.println("2 - SPM");
                 System.out.println("3 - STPM");
-                System.out.print("Please enter your level: ");
-                int level = keyboard.nextInt();
-                keyboard.nextLine();
+                do {
+                    System.out.print("Please enter your level: ");
+                    level = keyboard.nextInt();
+                    keyboard.nextLine();
+                } while (level < 1 || level > 3);
 
-                students[index] = new Secondary(studentID, studentName, age, nameOfSchool, extraLanguage, computerCourse, level);
+                students[index++] = new Secondary(studentID, studentName, age, nameOfSchool, extraLanguage, computerCourse, level);
             }
 
-            index++;
             System.out.print("Continue for another student? (Y/N): ");
             repeat = (keyboard.next().toUpperCase().charAt(0)) == 'Y';
+            keyboard.nextLine();
         } while (repeat);
+        keyboard.close();
 
         // Calculate and display the total fees collected from students for each examination type
         double totalPrimaryFees = 0.00;
