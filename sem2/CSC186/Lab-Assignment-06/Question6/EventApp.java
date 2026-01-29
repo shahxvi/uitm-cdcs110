@@ -25,7 +25,7 @@ public class EventApp {
             keyboard.nextLine();
 
             if (option == 1) {
-                System.out.print("Enter Type: ");
+                System.out.print("Enter Type (A/S/W): ");
                 char type = keyboard.nextLine().toUpperCase().charAt(0);
 
                 event[i] = new Conference(eventName, date, type);
@@ -34,7 +34,7 @@ public class EventApp {
                 int numOfGuest = keyboard.nextInt();
                 keyboard.nextLine();
 
-                System.out.print("Enter Menu Package: ");
+                System.out.print("Enter Menu Package (A/B/C): ");
                 char menuPackage = keyboard.nextLine().toUpperCase().charAt(0);
 
                 System.out.print("Enter Door Gifts (Y/N): ");
