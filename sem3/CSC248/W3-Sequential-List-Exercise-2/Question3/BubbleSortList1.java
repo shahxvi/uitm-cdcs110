@@ -28,7 +28,7 @@ public class BubbleSortList1 {
         }
 
         static void bubbleSort(ArrayList arr) {
-                for (int i = 0; i < arr.size() - 1; i++) {
+                for (int i = 0; i < arr.size(); i++) {
                         for (int j = 1; j < arr.size() - i; j++) {
                                 int ps0 = ((PreSchool) arr.get(j-1)).getAge();
                                 int ps1 = ((PreSchool) arr.get(j)).getAge();

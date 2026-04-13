@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+
+set timeout -1
+spawn java PreSchoolApp.java
+
+set data {
+    Noelle Chinese 4
+    Jenny Chinese 5
+    Raju Indian 6
+    Irfan Malay 4
+    Shah Malay 6
+}
+
+foreach {name race age} $data {
+    expect "Name:"
+    send "$name\r"
+
+    expect "Race:"
+    send "$race\r"
+
+    expect "Age:"
+    send "$age\r"
+}
+
+expect eof

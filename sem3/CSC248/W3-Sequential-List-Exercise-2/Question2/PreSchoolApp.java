@@ -9,13 +9,13 @@ public class PreSchoolApp {
                 ArrayList PSList = new ArrayList();
                 // (b) Input the data of FIVE (5) children into PSList
                 for (int i = 0; i < 5; i++) {
-                        System.out.print("\nEnter Pre-Schooler Name: ");
+                        System.out.print("\nEnter Pre-Schooler #" + (i+1) + " Name: ");
                         String name = keyboard.nextLine();
 
-                        System.out.print("Enter Pre-Schooler Race: ");
+                        System.out.print("Enter Pre-Schooler #" + (i+1) + " Race: ");
                         String race = keyboard.nextLine();
 
-                        System.out.print("Enter Pre-Schooler Age: ");
+                        System.out.print("Enter Pre-Schooler #" + (i+1) + " Age: ");
                         int age = keyboard.nextInt();
                         keyboard.nextLine();
 
@@ -46,6 +46,8 @@ public class PreSchoolApp {
                         if (children.getAge() == 4) totalCollection += 400.00;
                         else if (children.getAge() == 5 || children.getAge() == 6) totalCollection += 450.00;
                 }
-                System.out.println("\nTotal collection for the preschool: RM" + totalCollection);
+                System.out.printf("\nTotal collection for the preschool: RM %,.2f\n", totalCollection);
+
+                keyboard.close();
         }
 }
